@@ -45,7 +45,7 @@ The content of `src/favicons` and `src/root` will be copied in the root `dist` d
 
 ## Example
 
-The files here provide an example on how wepback can handles assets.
+The files here provide an example on how wepback can handles assets, see built `index.html` or `localhost:8080` in dev.
 
 #### Todo
 
