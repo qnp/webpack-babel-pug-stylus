@@ -15,6 +15,11 @@ Clone or download this repository, then `npm install` or `yarn`.
 ```
 - `npm run build`, build static files in `dist` directory.
 - `npm run serve`: a minimalistic express script (`server.js`) serves `dist` on port 3000.
+- `npm run report` opens the webpack bundle analyzer report generated in `report` directory by the build process.
+
+## Example
+
+The files here provide an example on how wepback can handles assets.
 
 ### Todo
 
