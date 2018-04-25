@@ -14,6 +14,7 @@ function staticAsset(_path) {
 
 // config
 const metas = require('./src/metas/index.js');
+const urlLoaderLimit = 10000;
 
 module.exports = {
   utils: {
@@ -98,7 +99,7 @@ module.exports = {
           test: /\.(png|jpe?g|gif)(\?.*)?$/,
           loader: 'url-loader',
           options: {
-            limit: 10000,
+            limit: urlLoaderLimit,
             name: staticAsset('img/[name].[hash:7].[ext]')
           }
         },
@@ -106,7 +107,7 @@ module.exports = {
           test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
           loader: 'url-loader',
           options: {
-            limit: 10000,
+            limit: urlLoaderLimit,
             name: staticAsset('media/[name].[hash:7].[ext]')
           }
         },
@@ -114,7 +115,7 @@ module.exports = {
           test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
           loader: 'url-loader',
           options: {
-            limit: 10000,
+            limit: urlLoaderLimit,
             name: staticAsset('fonts/[name].[hash:7].[ext]')
           }
         }
