@@ -1,1 +1,23 @@
-To be filled soon
+Create static pages using ES6+ (babel), pug and stylus with this webpack boilerplate. It uses some cool features picked from [Vue.js webpack boilerplate](https://github.com/vuejs-templates/webpack).
+
+# Usage
+
+## Installation
+
+Clone or download this repository, then `npm install` or `yarn`.
+
+## Commands
+
+- `npm start` which will run `npm run dev` for development.
+- `npm run dev-ip` for which host local IP is explicitly specified in `package.json`:
+```json
+    "dev-ip": "webpack-dev-server --mode development --inline --progress --host 192.168.<x>.<y> --config webpack.dev.js",
+```
+- `npm run build`, build static files in `dist` directory.
+- `npm run serve`: a minimalistic express script (`server.js`) serves `dist` on port 3000.
+
+### Todo
+
+- Easy creation of multipage static website
+- In depth documentation
+- Testing
