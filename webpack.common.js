@@ -13,7 +13,7 @@ function staticAsset(_path) {
 }
 
 // config
-// const metas = require('./src/metas.js');
+// const metas = require('./src/metas/index.js');
 
 module.exports = {
   utils: {
