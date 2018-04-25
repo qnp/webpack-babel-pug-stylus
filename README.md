@@ -1,4 +1,4 @@
-Create static pages using ES6+ (babel), pug and stylus with this webpack boilerplate. It uses some cool features picked from [Vue.js webpack boilerplate](https://github.com/vuejs-templates/webpack). Supports HMR.
+Create static pages using ES6+ (babel), pug and stylus with this *webpack 4* boilerplate. It uses some cool features picked from [Vue.js webpack boilerplate](https://github.com/vuejs-templates/webpack). Supports HMR.
 
 # Usage
 

@@ -1,9 +1,10 @@
 {
   "name": "webpack-babel-pug-stylus",
   "version": "1.0.0",
-  "description": "Webpack boilerplate to generate static pages with ES6+ (babel), pug and stylus",
+  "description": "Webpack 4 boilerplate to generate static pages with ES6+ (babel), pug and stylus",
   "keywords": [
     "webpack",
+    "webpack 4",
     "boilerplate",
     "sandox",
     "starter",
