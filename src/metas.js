@@ -1,11 +1,14 @@
+// theses metas will be injected in by the html-webpack-plugin
 
-const title = 'François Risoud Portfolio';
-const fullURL = 'http://www.francoisrisoud.com';
+const title = '';
+const fullURL = '';
 
-const keywords = 'François Risoud, Risoud, full-stack, web, developer, quantum, physics, phd, music, sound design, art, digital art, portfolio';
-const desc_search = 'François Risoud, full-stack web developer.';
-const desc_social = 'François Risoud, full-stack web developer.';
-const social_image = 'static/images/social/ekqnp.png';
+const keywords = '';
+const desc_search = '';
+const desc_social = '';
+const social_image = '';
+const twitter_site = '';
+const twitter_creator = '';
 
 module.exports = {
   // prevent phone number auto-detection (Safari iOS & Blackberry)
@@ -14,10 +17,6 @@ module.exports = {
     'http-equiv': 'x-rim-auto-match',
     content: 'none'
   },
-
-  // where it is hosted
-  'whereami': 'netlify',
-
 
   // search engines
   'description': desc_search,
@@ -39,8 +38,8 @@ module.exports = {
 
   // twitter cards
   'twitter:card': 'summary_large_image',
-  'twitter:site': '@ekqnp',
-  'twitter:creator': '@ekqnp',
+  'twitter:site': twitter_site,
+  'twitter:creator': twitter_creator,
   'twitter:title': title,
   'twitter:description': desc_social,
   'twitter:image': fullURL+'/'+social_image,
