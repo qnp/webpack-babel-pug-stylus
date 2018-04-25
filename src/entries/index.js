@@ -1,7 +1,9 @@
+// import styles
 import '@/styles/index.styl';
 
-const f = () => {
-  console.log('hello world');
+// example only
+const sayHelloInES6 = () => {
+  console.log('Hello world');
 };
 
-f();
+sayHelloInES6();

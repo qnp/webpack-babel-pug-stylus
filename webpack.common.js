@@ -13,7 +13,7 @@ function staticAsset(_path) {
 }
 
 // config
-// const metas = require('./src/metas/index.js');
+const metas = require('./src/metas/index.js');
 
 module.exports = {
   utils: {
@@ -35,7 +35,7 @@ module.exports = {
     htmlWebpackPluginConfig: {
       filename: 'index.html',
       template: path.resolve(__dirname, './src/views/index.pug'),
-      // meta: metas,
+      meta: metas,
       inject: true,
     }
   },
