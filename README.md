@@ -19,7 +19,7 @@ Clone or download this repository, then `npm install` or `yarn`.
 
 ## Other features
 
-The content of `src/favicons` and `src/root` will bbe copied in the root `dist` directory. This allows to use recommandations by the awsome favicon generator [https://realfavicongenerator.net](https://realfavicongenerator.net) and to add for example `sitemap.xml` or `_redirects` in the root of the dist website.
+The content of `src/favicons` and `src/root` will be copied in the root `dist` directory. This allows to use recommandations by the awsome favicon generator [https://realfavicongenerator.net](https://realfavicongenerator.net) and to add for example `sitemap.xml` or `_redirects` in the root of the dist website.
 
 ## Example
 
