@@ -6,5 +6,20 @@ html(lang='fr')
     title Hello world
 
   body
-    p Hello world
-    img(src='static/ekqnp.jpg')
+    h1 Hello world...
+    ul
+      li
+        p= 'static <img> not handled by webpack'
+        img(src='/static/ekqnp.jpg')
+      li
+        p= 'static <img>, asset handled by webpack'
+        img(src=require('@/assets/ekqnp.jpg'))
+      li
+        p= 'inline-loaded svg, processed by svgo (useful for animation)'
+        .inline-svg!=require('@/assets/ekqnp.svg')
+      li
+        p= 'background-image, asset handled by webpack (see index.styl)'
+        .bg-image-asset
+      li
+        p= 'background-image not handled by webpack (see index.styl)'
+        .bg-image-static

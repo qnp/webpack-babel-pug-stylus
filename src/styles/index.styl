@@ -1,3 +1,29 @@
 // for example only
-body
-  color #00f
+img
+  width 150px
+  height 150px
+
+.inline-svg
+  width 150px
+  height 150px
+  path
+    transition all 0.8s ease
+  &:hover
+    path:nth-child(1)
+      fill #dbddc7
+    path:nth-child(2)
+      fill #fc0024
+      transform scale(1.1) translate(-5%,-5%)
+
+
+.bg-image-asset
+  width 150px
+  height 150px
+  background-image url('~@/assets/ekqnp.jpg')
+  background-size contain
+
+.bg-image-static
+  width 150px
+  height 150px
+  background-image url('/static/ekqnp.jpg')
+  background-size contain
