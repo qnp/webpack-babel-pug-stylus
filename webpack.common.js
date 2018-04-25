@@ -1,9 +1,23 @@
 'use strict';
 // requires
 const path = require('path');
+const metas = require('./src/metas/index.js');
+
+/* YOUR DIFFERENT ENTRIES HERE */
+const entries = [
+  {
+    name: 'index'
+  },
+  {
+    name: 'page1',
+    entryPoint: './src/entries/page1_entry.js',
+    viewPoint: './src/views/page1_view.pug',
+    outputPoint: 'page1/index.html'
+  }
+];
+/* */
 
 // utils
-
 function resolve(_path) {
   return path.resolve(__dirname, './', _path);
 }
@@ -12,8 +26,29 @@ function staticAsset(_path) {
   return path.posix.join('static', _path);
 }
 
+function formatEntries(_entries) {
+  const entriesObj = {};
+  _entries.forEach(function(entry) {
+    entriesObj[entry.name] = entry.entryPoint ? entry.entryPoint : './src/entries/' + entry.name + '.js';
+  });
+  return entriesObj;
+}
+
+function generateHtmlWepackPluginConfig(_entries) {
+  const config = [];
+  _entries.forEach(function(entry) {
+    config.push({
+      filename: entry.outputPoint ? entry.outputPoint : entry.name + '.html',
+      template: path.resolve(__dirname, entry.viewPoint ? entry.viewPoint : './src/views/' + entry.name + '.pug'),
+      chunks: [entry.name],
+      meta: metas,
+      inject: true,
+    });
+  });
+  return config;
+}
+
 // config
-const metas = require('./src/metas/index.js');
 const urlLoaderLimit = 10000;
 
 module.exports = {
@@ -33,18 +68,11 @@ module.exports = {
         }
       ];
     },
-    htmlWebpackPluginConfig: {
-      filename: 'index.html',
-      template: path.resolve(__dirname, './src/views/index.pug'),
-      meta: metas,
-      inject: true,
-    }
+    htmlWebpackPluginConfig: generateHtmlWepackPluginConfig(entries)
   },
   config: {
     context: resolve('.'),
-    entry: {
-      index: './src/entries/index.js'
-    },
+    entry: formatEntries(entries),
     output: {
       path: resolve('dist'),
       filename: '[name].js',

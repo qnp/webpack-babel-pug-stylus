@@ -13,6 +13,17 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const packageJson = require('./package.json');
 const common = require('./webpack.common.js');
 const port = 8080;
+const devHtmlWebpackPluginsConfig = {
+  minify: false
+};
+
+// generate HtmlWebpackPlugins
+const htmlWebpackPlugins = [];
+common.utils.htmlWebpackPluginConfig.forEach(function(config) {
+  htmlWebpackPlugins.push(new HtmlWebpackPlugin(
+    Object.assign({}, config, devHtmlWebpackPluginsConfig)
+  ));
+});
 
 module.exports = merge(common.config, {
   module: {
@@ -53,10 +64,6 @@ module.exports = merge(common.config, {
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
 
-    new HtmlWebpackPlugin(Object.assign({}, common.utils.htmlWebpackPluginConfig, {
-      minify: false
-    })),
-
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: [`Your application is running at port ${port}`],
@@ -76,5 +83,6 @@ module.exports = merge(common.config, {
       }
     })
 
-  ]
+  ].concat(htmlWebpackPlugins)
+
 });

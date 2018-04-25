@@ -16,6 +16,23 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 // config
 const common = require('./webpack.common.js');
 const distRoot = path.resolve(__dirname, './dist');
+const prodHtmlWebpackPluginsConfig = {
+  minify: {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeAttributeQuotes: true
+  },
+  // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+  chunksSortMode: 'dependency'
+};
+
+// generate HtmlWebpackPlugins
+const htmlWebpackPlugins = [];
+common.utils.htmlWebpackPluginConfig.forEach(function(config) {
+  htmlWebpackPlugins.push(new HtmlWebpackPlugin(
+    Object.assign({}, config, prodHtmlWebpackPluginsConfig)
+  ));
+});
 
 module.exports = merge(common.config, {
   module: {
@@ -57,16 +74,6 @@ module.exports = merge(common.config, {
       chunkFilename: common.utils.staticAsset('css/[id].[chunkhash].css'),
     }),
 
-    new HtmlWebpackPlugin(Object.assign({}, common.utils.htmlWebpackPluginConfig, {
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
-    })),
-
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
 
@@ -98,5 +105,6 @@ module.exports = merge(common.config, {
       openAnalyzer: false
     }),
 
-  ]
+  ].concat(htmlWebpackPlugins)
+
 });
