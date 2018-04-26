@@ -6,13 +6,15 @@ const metas = require('./src/metas/index.js');
 /* YOUR DIFFERENT ENTRIES HERE */
 const entries = [
   {
-    name: 'index'
+    name: 'index',
+    metas: metas,
   },
   {
     name: 'page1',
     entryPoint: './src/entries/page1_entry.js',
     viewPoint: './src/views/page1_view.pug',
-    outputPoint: 'page1/index.html'
+    outputPoint: 'page1/index.html',
+    metas: metas,
   }
 ];
 /* */
@@ -41,7 +43,7 @@ function generateHtmlWepackPluginConfig(_entries) {
       filename: entry.outputPoint ? entry.outputPoint : entry.name + '.html',
       template: path.resolve(__dirname, entry.viewPoint ? entry.viewPoint : './src/views/' + entry.name + '.pug'),
       chunks: ['runtime', 'commons', entry.name],
-      meta: metas,
+      meta: _entries.metas,
       inject: true,
     });
   });
