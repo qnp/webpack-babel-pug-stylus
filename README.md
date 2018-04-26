@@ -49,6 +49,4 @@ The files here provide an example on how wepback can handles assets, see built `
 
 #### Todo
 
-- In depth documentation
-- Is splitChunks working great with zero setup ?
 - Testing
