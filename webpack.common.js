@@ -43,7 +43,7 @@ function generateHtmlWepackPluginConfig(_entries) {
       filename: entry.outputPoint ? entry.outputPoint : entry.name + '.html',
       template: path.resolve(__dirname, entry.viewPoint ? entry.viewPoint : './src/views/' + entry.name + '.pug'),
       chunks: ['runtime', 'commons', entry.name],
-      meta: _entries.metas,
+      meta: entry.metas,
       inject: true,
     });
   });
