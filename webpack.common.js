@@ -40,7 +40,7 @@ function generateHtmlWepackPluginConfig(_entries) {
     config.push({
       filename: entry.outputPoint ? entry.outputPoint : entry.name + '.html',
       template: path.resolve(__dirname, entry.viewPoint ? entry.viewPoint : './src/views/' + entry.name + '.pug'),
-      chunks: [entry.name],
+      chunks: ['runtime', 'commons', entry.name],
       meta: metas,
       inject: true,
     });
@@ -148,6 +148,20 @@ module.exports = {
           }
         }
       ]
+    },
+    optimization: {
+      runtimeChunk: {
+        name: 'runtime'
+      },
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            name: 'commons',
+            chunks: 'initial',
+            minChunks: 2
+          }
+        }
+      }
     },
     node: {
       // prevent webpack from injecting mocks to Node native modules

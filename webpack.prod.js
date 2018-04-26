@@ -46,8 +46,9 @@ module.exports = merge(common.config, {
 
   output: {
     path: distRoot,
-    filename: common.utils.staticAsset('js/[name].[chunkhash].js'),
-    chunkFilename: common.utils.staticAsset('js/[id].[chunkhash].js')
+    filename: common.utils.staticAsset('js/[name].[hash].js'),
+    chunkFilename: common.utils.staticAsset('js/[id].[name].[hash].js'),
+    hashDigestLength: 5,
   },
 
   plugins: [
@@ -70,8 +71,8 @@ module.exports = merge(common.config, {
     new CssoWebpackPlugin(),
     // extract css into its own file
     new MiniCssExtractPlugin({
-      filename: common.utils.staticAsset('css/[name].[chunkhash].css'),
-      chunkFilename: common.utils.staticAsset('css/[id].[chunkhash].css'),
+      filename: common.utils.staticAsset('css/[name].[hash].css'),
+      chunkFilename: common.utils.staticAsset('css/[id].[name].[hash].css'),
     }),
 
     // keep module.id stable when vender modules does not change
