@@ -29,7 +29,10 @@ module.exports = merge(common.config, {
   module: {
     rules: [{
       test: /\.(styl|stylus)$/,
-      use: ['style-loader'].concat(common.utils.styleLoaders({sourceMap: false})),
+      use: ['style-loader'].concat(common.utils.cssLoaders({sourceMap: false})).concat(common.utils.stylusLoaders({sourceMap: false})),
+    }, {
+      test: /\.css$/,
+      use: ['style-loader'].concat(common.utils.cssLoaders({sourceMap: false})),
     }]
   },
   // cheap-module-eval-source-map is faster for development

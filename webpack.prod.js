@@ -38,7 +38,10 @@ module.exports = merge(common.config, {
   module: {
     rules: [{
       test: /\.(styl|stylus)$/,
-      use: [MiniCssExtractPlugin.loader].concat(common.utils.styleLoaders({sourceMap: false}))
+      use: [MiniCssExtractPlugin.loader].concat(common.utils.cssLoaders({sourceMap: false})).concat(common.utils.stylusLoaders({sourceMap: false}))
+    }, {
+      test: /\.css$/,
+      use: [MiniCssExtractPlugin.loader].concat(common.utils.cssLoaders({sourceMap: false}))
     }]
   },
 

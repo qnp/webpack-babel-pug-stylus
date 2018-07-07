@@ -56,7 +56,7 @@ const urlLoaderLimit = 10000;
 module.exports = {
   utils: {
     staticAsset: staticAsset,
-    styleLoaders: function(options) {
+    cssLoaders: function(options) {
       return [
         {
           loader: 'css-loader',
@@ -64,7 +64,12 @@ module.exports = {
         }, {
           loader: 'postcss-loader',
           options: options
-        }, {
+        }
+      ];
+    },
+    stylusLoaders: function(options) {
+      return [
+        {
           loader: 'stylus-loader',
           options: options
         }
